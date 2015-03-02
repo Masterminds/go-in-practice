@@ -1,0 +1,15 @@
+$ mkdir myproject
+$ cd myproject
+$ glide init
+ [INFO] Your new GOPATH is /Users/matt/Code/myproject/_vendor. Run 'glide gopath' to see it again._
+ [INFO] Initialized. You can now edit 'glide.yaml'
+$ vi glide.yaml
+$ glide in
+ >> You are now gliding into a new shell. To exit, type 'exit'
+$ glide install
+ [INFO] Installing github.com/Masterminds/cookoo with Git (From
+git@github.com:Masterminds/cookoo.git)
+ ...
+ [INFO] Building dependencies.
+ [INFO] Running go build github.com/Masterminds/cookoo
+$

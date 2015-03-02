@@ -1,0 +1,6 @@
+package: myproject
+import:
+  - package: github.com/Masterminds/cookoo
+    repo: git@github.com:Masterminds/cookoo.git
+    ref: master
+    vcs: git
