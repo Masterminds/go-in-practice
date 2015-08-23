@@ -1,0 +1,2 @@
+example 2015/05/12 09:30:58.166855 outfile.go:19: This is a regular message.
+example 2015/05/12 09:30:58.167120 outfile.go:20: This is a fatal error.
