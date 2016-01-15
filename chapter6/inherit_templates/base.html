@@ -3,13 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>{{template "title" .}}</title>
-    {{template "styles" .}}
+    {{ block "styles" . }}<style>
+    h1 {
+    	color: #400080
+    }
+    </style>{{ end }}
   </head>
   <body>
   	<h1>{{template "title" .}}</h1>
   	{{template "content" .}}
-  	{{template "scripts" .}}
+  	{{block "scripts" .}}{{end}}
   </body>
 </html>{{end}}
-{{ define "styles" }}{{ end }}
-{{ define "scripts" }}{{ end }}

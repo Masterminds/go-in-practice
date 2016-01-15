@@ -9,9 +9,9 @@ var t map[string]*template.Template
 
 func init() {
 	t = make(map[string]*template.Template)
-	temp := template.Must(template.ParseFiles("user.html", "base.html"))
+	temp := template.Must(template.ParseFiles("base.html", "user.html"))
 	t["user.html"] = temp
-	temp = template.Must(template.ParseFiles("page.html", "base.html"))
+	temp = template.Must(template.ParseFiles("base.html", "page.html"))
 	t["page.html"] = temp
 }
 
