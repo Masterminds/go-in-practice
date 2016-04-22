@@ -1,8 +1,9 @@
 package main
 
 import (
-	"code.google.com/p/gcfg"
 	"fmt"
+
+	"code.google.com/p/gcfg"
 )
 
 func main() {
