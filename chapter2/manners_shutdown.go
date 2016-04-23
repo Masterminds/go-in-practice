@@ -9,17 +9,14 @@ import (
 	"github.com/braintree/manners"
 )
 
-var server *manners.GracefulServer
-
 func main() {
 	handler := newHandler()
-	server = manners.NewServer()
 
-	ch := make(chan os.Signal, 1)
+	ch := make(chan os.Signal)
 	signal.Notify(ch, os.Interrupt, os.Kill)
 	go listenForShutdown(ch)
 
-	server.ListenAndServe(":8080", handler)
+	manners.ListenAndServe(":8080", handler)
 }
 
 func newHandler() *handler {
@@ -39,6 +36,5 @@ func (h *handler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 
 func listenForShutdown(ch <-chan os.Signal) {
 	<-ch
-	server.InnerServer.SetKeepAlivesEnabled(false)
-	server.Shutdown <- true
+	manners.Close()
 }
