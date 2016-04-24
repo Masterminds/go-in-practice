@@ -33,16 +33,16 @@ func get(u string) (*http.Response, error) {
 		b, _ := ioutil.ReadAll(res.Body)
 		res.Body.Close()
 		var data struct {
-			Er Error `json:"error"`
+			Err Error `json:"error"`
 		}
 		err = json.Unmarshal(b, &data)
 		if err != nil {
 			sm := "Unable to parse json: %s. HTTP status: %s"
 			return res, fmt.Errorf(sm, err, res.Status)
 		}
-		data.Er.HTTPCode = res.StatusCode
+		data.Err.HTTPCode = res.StatusCode
 
-		return res, data.Er
+		return res, data.Err
 	}
 
 	return res, nil

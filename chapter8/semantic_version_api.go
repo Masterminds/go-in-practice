@@ -7,11 +7,11 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/test", diaplayTest)
+	http.HandleFunc("/test", displayTest)
 	http.ListenAndServe(":8080", nil)
 }
 
-func diaplayTest(w http.ResponseWriter, r *http.Request) {
+func displayTest(w http.ResponseWriter, r *http.Request) {
 	t := r.Header.Get("Accept")
 	var err error
 	var b []byte

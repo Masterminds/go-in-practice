@@ -9,7 +9,8 @@ import (
 )
 
 type EmailMessage struct {
-	From, To, Subject, Body string
+	From, Subject, Body string
+	To                  []string
 }
 
 type EmailCredentials struct {
@@ -34,7 +35,7 @@ func init() {
 func main() {
 	message := &EmailMessage{
 		From:    "me@example.com",
-		To:      "you@example.com",
+		To:      []string{"you@example.com"},
 		Subject: "A test",
 		Body:    "Just saying hi",
 	}

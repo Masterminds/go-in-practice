@@ -14,7 +14,7 @@ type Error struct {
 
 func JSONError(w http.ResponseWriter, e Error) {
 	data := struct {
-		Er Error `json:"error"`
+		Err Error `json:"error"`
 	}{e}
 	b, err := json.Marshal(data)
 	if err != nil {
@@ -26,7 +26,7 @@ func JSONError(w http.ResponseWriter, e Error) {
 	fmt.Fprint(w, string(b))
 }
 
-func diaplayError(w http.ResponseWriter, r *http.Request) {
+func displayError(w http.ResponseWriter, r *http.Request) {
 	e := Error{
 		HTTPCode: http.StatusForbidden,
 		Code:     123,
@@ -36,6 +36,6 @@ func diaplayError(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", diaplayError)
+	http.HandleFunc("/", displayError)
 	http.ListenAndServe(":8080", nil)
 }

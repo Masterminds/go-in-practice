@@ -4,14 +4,13 @@ import (
 	"bytes"
 	"fmt"
 	"html/template"
-	"io"
 	"net/http"
 )
 
 var t *template.Template
 
 func init() {
-	t = template.Must(template.ParseFiles("../templates/simple.html"))
+	t = template.Must(template.ParseFiles("./templates/simple.html"))
 }
 
 type Page struct {
@@ -29,8 +28,7 @@ func diaplayPage(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "A error occured.")
 		return
 	}
-	br := bytes.NewReader(b.Bytes())
-	io.Copy(w, br)
+	b.WriteTo(w)
 }
 
 func main() {
