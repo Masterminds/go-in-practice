@@ -9,15 +9,12 @@ import (
 
 func main() {
 	var file io.ReadCloser
-	defer func() {
-		file.Close()
-	}()
-
 	file, err := OpenCSV("data.csv")
 	if err != nil {
 		fmt.Printf("Error: %s", err)
 		return
 	}
+	defer file.Close()
 
 	// Do something with file.
 
