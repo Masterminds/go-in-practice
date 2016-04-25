@@ -7,9 +7,7 @@ import (
 
 func main() {
 	logfile, _ := os.Create("./log.txt")
-	defer func() {
-		logfile.Close()
-	}()
+	defer logfile.Close()
 
 	f := log.Ldate | log.Lmicroseconds | log.Lshortfile | log.Llongfile
 	logger := log.New(logfile, "example ", f)

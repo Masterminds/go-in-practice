@@ -13,9 +13,7 @@ func main() {
 	if err != nil {
 		panic("Failed to connect to localhost:1902")
 	}
-	defer func() {
-		conn.Close()
-	}()
+	defer conn.Close()
 
 	f := log.Ldate | log.Lshortfile
 	logger := log.New(conn, "example ", f)
