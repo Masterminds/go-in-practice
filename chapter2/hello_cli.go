@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/codegangsta/cli"
 	"os"
+
+	"github.com/codegangsta/cli"
 )
 
 func main() {
@@ -17,9 +18,11 @@ func main() {
 			Usage: "Who to say hello to.",
 		},
 	}
-	app.Action = func(c *cli.Context) {
+	app.Action = func(c *cli.Context) error {
 		name := c.GlobalString("name")
 		fmt.Printf("Hello %s!\n", name)
+
+		return nil
 	}
 
 	app.Run(os.Args)

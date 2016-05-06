@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/codegangsta/cli"
 	"os"
+
+	"github.com/codegangsta/cli"
 )
 
 func main() {
@@ -21,7 +22,7 @@ func main() {
 					Value: 10,
 				},
 			},
-			Action: func(c *cli.Context) {
+			Action: func(c *cli.Context) error {
 				start := c.Int("stop")
 				if start <= 0 {
 					fmt.Println("Stop cannot be negative.")
@@ -29,6 +30,7 @@ func main() {
 				for i := 1; i <= start; i++ {
 					fmt.Println(i)
 				}
+				return nil
 			},
 		},
 		{
@@ -42,7 +44,7 @@ func main() {
 					Value: 10,
 				},
 			},
-			Action: func(c *cli.Context) {
+			Action: func(c *cli.Context) error {
 				start := c.Int("start")
 				if start < 0 {
 					fmt.Println("Start cannot be negative.")
@@ -50,6 +52,7 @@ func main() {
 				for i := start; i >= 0; i-- {
 					fmt.Println(i)
 				}
+				return nil
 			},
 		},
 	}
