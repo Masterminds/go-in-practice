@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/codegangsta/cli"
+	"gopkg.in/urfave/cli.v1"
 )
 
 func main() {
