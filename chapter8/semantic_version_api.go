@@ -17,16 +17,16 @@ func displayTest(w http.ResponseWriter, r *http.Request) {
 	var b []byte
 	var ct string
 	switch t {
-	case "applicaiton/vnd.mytodos.json; version=2.0":
+	case "application/vnd.mytodos.json; version=2.0":
 		data := testMessageV2{"Version 2"}
 		b, err = json.Marshal(data)
-		ct = "applicaiton/vnd.mytodos.json; version=2.0"
-	case "applicaiton/vnd.mytodos.json; version=1.0":
+		ct = "application/vnd.mytodos.json; version=2.0"
+	case "application/vnd.mytodos.json; version=1.0":
 		fallthrough
 	default:
 		data := testMessageV1{"Version 1"}
 		b, err = json.Marshal(data)
-		ct = "applicaiton/vnd.mytodos.json; version=1.0"
+		ct = "application/vnd.mytodos.json; version=1.0"
 	}
 
 	if err != nil {

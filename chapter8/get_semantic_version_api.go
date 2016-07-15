@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	ct := "applicaiton/vnd.mytodos.json; version=2.0"
+	ct := "application/vnd.mytodos.json; version=2.0"
 	req, _ := http.NewRequest("GET", "http://localhost:8080/test", nil)
 	req.Header.Set("Accept", ct)
 	res, _ := http.DefaultClient.Do(req)
