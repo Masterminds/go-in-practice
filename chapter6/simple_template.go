@@ -9,7 +9,7 @@ type Page struct {
 	Title, Content string
 }
 
-func diaplayPage(w http.ResponseWriter, r *http.Request) {
+func displayPage(w http.ResponseWriter, r *http.Request) {
 	p := &Page{
 		Title:   "An Example",
 		Content: "Have fun stormin’ da castle.",
@@ -19,6 +19,6 @@ func diaplayPage(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", diaplayPage)
+	http.HandleFunc("/", displayPage)
 	http.ListenAndServe(":8080", nil)
 }
