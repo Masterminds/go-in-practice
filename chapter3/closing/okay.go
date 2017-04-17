@@ -18,6 +18,7 @@ func main() {
 			fmt.Println(m)
 		case <-until:
 			done <- true
+			close(done)
 			time.Sleep(500 * time.Millisecond)
 			return
 		}
