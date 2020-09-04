@@ -1,9 +1,10 @@
 package main
 
 import (
-	"./safely"
 	"errors"
 	"time"
+
+	"./safely"
 )
 
 func message() {
@@ -14,5 +15,5 @@ func message() {
 func main() {
 	safely.Go(message)
 	println("Outside goroutine")
-	time.Sleep(200)
+	time.Sleep(200 * time.Millisecond)
 }
